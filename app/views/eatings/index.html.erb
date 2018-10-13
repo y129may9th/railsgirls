@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>カフェ</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eatings.each do |eating| %>
+      <tr>
+        <td><%= eating.name %></td>
+        <td><%= eating.description %></td>
+        <td><%= eating.picture %></td>
+        <td><%= link_to 'Show', eating %></td>
+        <td><%= link_to 'Edit', edit_eating_path(eating) %></td>
+        <td><%= link_to 'Destroy', eating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Eating', new_eating_path %>
