@@ -17,7 +17,7 @@
       <tr>
         <td><%= eating.name %></td>
         <td><%= eating.description %></td>
-        <td><%= eating.picture %></td>
+        <td><%= image_tag(eating.picture_url, width: 50) if eating.picture.present? %></td>
         <td><%= link_to 'Show', eating %></td>
         <td><%= link_to 'Edit', edit_eating_path(eating) %></td>
         <td><%= link_to 'Destroy', eating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
