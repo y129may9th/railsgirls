@@ -17,8 +17,13 @@
       <tr>
         <td><%= eating.name %></td>
         <td><%= eating.description %></td>
-        <td><%= image_tag(eating.picture_url, width: 50) if eating.picture.present? %></td>
-        <td><%= link_to 'Show', eating %></td>
+
+        <% if eating.picture.present? %>
+          <td><%= link_to image_tag(eating.picture_url, width: 50), eating %></td>
+        <% else %>
+          <td><%= link_to image_tag('noimage.png', width: 50), eating %></td>
+        <% end %>
+
         <td><%= link_to 'Edit', edit_eating_path(eating) %></td>
         <td><%= link_to 'Destroy', eating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
